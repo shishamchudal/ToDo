@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
-use App\Models\Item;
 
 class ItemController extends Controller
 {
@@ -15,17 +15,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Item::orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -36,7 +26,7 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        //
+        return Item::create($request->validated());
     }
 
     /**
@@ -47,18 +37,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $item)
-    {
-        //
+        return $item;
     }
 
     /**
@@ -70,7 +49,7 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
-        //
+        return $item->update($request->validated());
     }
 
     /**
@@ -81,6 +60,6 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        return $item->delete();
     }
 }
