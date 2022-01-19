@@ -36,6 +36,55 @@ To run this project, you will need to add the following environment variables to
 `DB_PASSWORD`
 
 
+## API Reference
+
+#### Get all Items
+
+```http
+  GET /api/items
+```
+
+#### Create item
+
+```http
+  POST /api/items
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `name`      | `string` | **Required**. Name for the ToDo Item. |
+
+#### Get single item
+
+```http
+  GET /api/items/{item}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `item`      | `numeric` | **Required**. Id of item to fetch |
+
+#### Update an item
+
+```http
+  PATCH|PUT /api/items/{item}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `item`      | `numeric` | **Required**. Id of the item to be updated. |
+
+#### Delete an item
+
+```http
+  DELETE /api/items/{item}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `item`      | `numeric` | **Required**. Id of the item to be deleted. |
+
+
 ## Running Tests
 
 To run tests, run the following command
