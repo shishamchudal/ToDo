@@ -12,7 +12,7 @@ class Item extends Model
 
     protected $guarded = [];
 
-    protected $casks = [
+    protected $casts = [
         'name' => 'string',
         'completed' => 'boolean',
         'completed_at' => 'date',
